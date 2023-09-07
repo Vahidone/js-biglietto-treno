@@ -16,16 +16,18 @@ let verifyKm = Math.sign(km);
 
 if (age < 18)
   message =
-    textBot + priceMinor.toFixed(2) + "*** con uno sconto speciale di 20% ***";
+    textBot +
+    priceMinor.toFixed(2) +
+    "  *** con uno sconto speciale di 20% ***";
 else if (age >= 65)
   message =
-    textBot + priceOver.toFixed(2) + "*** con uno sconto speciale di 40% ***";
+    textBot + priceOver.toFixed(2) + "  *** con uno sconto speciale di 40% ***";
 else message = textBot + priceTrip;
 
 // operazione di verifica **************
-if (age <= 2 && age > 0) message = "Per te il biglietto è gratis :)";
+if (age <= 2 && age > 0) message = "==>> Per te il biglietto è gratis :)";
 else if (verifyKm === 0 || verifyAge === 0)
-  message = "Oops!!! non è possibile emettere il biglietto :(";
+  message = "Oops!!! non è possibile emettere il biglietto!! :(";
 else if (verifyKm === -1 || verifyAge === -1)
   message = "ATTENZIONE!! Vengono accettate solo risposte reali !!";
 else if (verifyKm != 1 || verifyAge != 1)
