@@ -9,10 +9,24 @@ const priceMinor = priceTrip - percentPriceMinor;
 const percentageSubOver = 40;
 const percentPriceOver = percentageSubOver / 100;
 const priceOver = priceTrip - percentPriceOver;
-let finalPrice;
+let textBot = "Il prezzo del tuo biglietto è € ";
+let message;
+let verificaAge = Math.sign(age);
+let verificaKm = Math.sign(km);
 
-if (age < 18) finalPrice = priceMinor.toFixed(2);
-else if (age >= 65) finalPrice = priceOver.toFixed(2);
-else finalPrice = priceTrip;
+if (age < 18)
+  message =
+    textBot + priceMinor.toFixed(2) + "*** con uno sconto speciale di 20% ***";
+else if (age >= 65)
+  message =
+    textBot + priceOver.toFixed(2) + "*** con uno sconto speciale di 40% ***";
+else message = textBot + priceTrip;
 
-document.getElementById("final-price").innerHTML = finalPrice;
+// operazione di verifica **************
+if (age <= 2 && age > 0) message = "per te il biglietto è gratis :)";
+else if (verificaKm === 0 || verificaAge === 0)
+  message = "Oops!!! non è possibile emettere il biglietto :(";
+else if (verificaAge === -1 || verificaAge === -1)
+  message = "ATTENZIONE!! vengono accettate solo risposte reali !!";
+
+document.getElementById("final-price").innerHTML = message;
