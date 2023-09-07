@@ -8,13 +8,13 @@ const priceMinor = price * percentPriceMinor;
 const percentageSubOver = 40;
 const percentPriceOver = percentageSubOver / 100;
 const priceOver = price * percentPriceOver;
-let message;
 const roundedResult = price.toFixed(2);
+let finalPrice;
 
-if (age < 18) message = roundedResult - priceMinor;
-else if (age >= 65) message = roundedResult - priceOver;
-else message = roundedResult;
+if (age < 18) finalPrice = roundedResult - priceMinor;
+else if (age >= 65) finalPrice = roundedResult - priceOver;
+else finalPrice = roundedResult;
 
-const result = ` Il prezzo del tuo biglietto è € ${message}`;
+const result = ` Il prezzo del tuo biglietto è € ${finalPrice}`;
 
 document.getElementById("final-price").innerHTML = result;
