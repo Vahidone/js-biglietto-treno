@@ -28,5 +28,7 @@ else if (verificaKm === 0 || verificaAge === 0)
   message = "Oops!!! non è possibile emettere il biglietto :(";
 else if (verificaAge === -1 || verificaAge === -1)
   message = "ATTENZIONE!! vengono accettate solo risposte reali !!";
+else if (verificaAge != 1 || verificaAge != 1)
+  message = "ATTENZIONE!! non puoi lasciare nessun campo vuoto !!";
 
 document.getElementById("final-price").innerHTML = message;
