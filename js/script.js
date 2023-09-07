@@ -1,20 +1,18 @@
 const age = parseInt(prompt("quanti anni hai?"));
 
 const km = parseInt(prompt("quanti chilometri vuoi percorrere?"));
-const price = km * 0.21;
+const priceForKm = 0.21;
+const priceTrip = km * priceForKm;
 const percentageSubMinor = 20;
 const percentPriceMinor = percentageSubMinor / 100;
-const priceMinor = price * percentPriceMinor;
+const priceMinor = priceTrip - percentPriceMinor;
 const percentageSubOver = 40;
 const percentPriceOver = percentageSubOver / 100;
-const priceOver = price * percentPriceOver;
-const roundedResult = price.toFixed(2);
+const priceOver = priceTrip - percentPriceOver;
 let finalPrice;
 
-if (age < 18) finalPrice = roundedResult - priceMinor;
-else if (age >= 65) finalPrice = roundedResult - priceOver;
-else finalPrice = roundedResult;
+if (age < 18) finalPrice = priceMinor.toFixed(2);
+else if (age >= 65) finalPrice = priceOver.toFixed(2);
+else finalPrice = priceTrip;
 
-const result = ` Il prezzo del tuo biglietto è € ${finalPrice}`;
-
-document.getElementById("final-price").innerHTML = result;
+document.getElementById("final-price").innerHTML = finalPrice;
