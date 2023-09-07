@@ -23,12 +23,12 @@ else if (age >= 65)
 else message = textBot + priceTrip;
 
 // operazione di verifica **************
-if (age <= 2 && age > 0) message = "per te il biglietto è gratis :)";
+if (age <= 2 && age > 0) message = "Per te il biglietto è gratis :)";
 else if (verifyKm === 0 || verifyAge === 0)
   message = "Oops!!! non è possibile emettere il biglietto :(";
 else if (verifyKm === -1 || verifyAge === -1)
-  message = "ATTENZIONE!! vengono accettate solo risposte reali !!";
+  message = "ATTENZIONE!! Vengono accettate solo risposte reali !!";
 else if (verifyKm != 1 || verifyAge != 1)
-  message = "ATTENZIONE!! non puoi lasciare nessun campo vuoto !!";
+  message = "ATTENZIONE!! Il campo inserito non è un numero valido!!";
 
 document.getElementById("final-price").innerHTML = message;
